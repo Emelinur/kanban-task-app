@@ -24,8 +24,6 @@ Your users should be able to:
 - **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 - **Bonus**: Build this project as a full-stack application
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
-
 ### Expected Behaviour
 
 - Boards
