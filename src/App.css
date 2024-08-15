@@ -1,3 +1,18 @@
+<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+=======
+
+
+body {
+  background-color: #304e8a;
+  width: 1140px;
+  height: 1024px;
+  margin: 0;
+  padding: 0;
+font-family: "Plus Jakarta Sans", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
+>>>>>>> 7f53da756d60050c5122f1cec7440ab45af0edaa
