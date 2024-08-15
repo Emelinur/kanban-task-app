@@ -1,15 +1,8 @@
 import "./App.css";
-import { Navbar } from "./components/Navbar";
-import { SideBar } from "./components/Sidebar";
-
-
-function App() {
+export default function App() {
   return (
-    <>
-      <Navbar />
-      {/* <SideBar /> */}
-    </>
-  );
+    <h1 className="text-3xl font-bold underline">
+    Hello Kanban
+    </h1>
+  )
 }
-
-export default App;
