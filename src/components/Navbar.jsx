@@ -1,7 +1,7 @@
 export function Navbar() {
   return (
     <>
-      <nav className="text-3xl w-56 bg-white border-r-2 border-border">
+      <nav className="text-3xl w-56 bg-white border-r-2 border-border flex flex-col ">
         <div className="mt-8 flex items-center">
           <span className="inline-block">
             <svg
@@ -26,6 +26,12 @@ export function Navbar() {
           </span>
           <span>kanban</span>
         </div>
+
+        <div className="mt-24">
+          <p className="text-xl">ALL BOARDS</p>
+
+        </div>
+      
       </nav>
     </>
   );
