@@ -10,7 +10,8 @@ export default {
       colors:{
         lightGrey:"#E4EBFA",
         mediumGrey:"#828FA3",
-        mainPurple:"#635FC7"
+        mainPurple:"#635FC7",
+       border:"#E4EBFA"
 
       },
     },
