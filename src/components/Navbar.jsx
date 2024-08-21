@@ -24,14 +24,29 @@ export function Navbar() {
               </g>
             </svg>
           </span>
-          <span>kanban</span>
+          <span className="font-bold">Kanban</span>
         </div>
 
         <div className="mt-24">
-          <p className="text-xl">ALL BOARDS</p>
-
+          <h5 className="text-xl ml-6">ALL BOARDS</h5>
+          <div className="hover:bg-mainPurple flex mt-3 items-center ">
+            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
+            <a href="" className="text-lg  ">Platform Launch</a>
+          </div>
+          <div className="hover:bg-mainPurple flex mt-3 items-center">
+            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
+            <a href="" className="text-lg  ">Marketing Plan</a>
+          </div>
+          <div className="hover:bg-mainPurple  flex mt-3 items-center">
+            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
+            <a href="" className="text-lg ">Roadmap</a>
+          </div>
+          <div className="hover:bg-mainPurple flex mt-3 items-center">
+            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
+            <a href="" className="text-lg ">+Create New Board</a>
+          </div>
+     
         </div>
-      
       </nav>
     </>
   );
