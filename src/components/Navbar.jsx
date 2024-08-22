@@ -1,7 +1,7 @@
 export function Navbar() {
   return (
     <>
-      <nav className="text-3xl w-56 bg-white border-r-2 border-border flex flex-col ">
+      <nav className="text-3xl w-56 bg-white border-r-2 border-border flex flex-col  justify-between  items-baseline">
         <div className="mt-8 flex items-center">
           <span className="inline-block">
             <svg
@@ -27,25 +27,50 @@ export function Navbar() {
           <span className="font-bold">Kanban</span>
         </div>
 
-        <div className="mt-24">
+        <div>
           <h5 className="text-xl ml-6">ALL BOARDS</h5>
-          <div className="hover:bg-mainPurple flex mt-3 items-center ">
-            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
-            <a href="" className="text-lg  ">Platform Launch</a>
+          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
+            <span className="ml-4 pr-4">
+              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" /> 
+            </span>
+            <a href="" className="text-lg text-mediumGrey  hover:text-white">
+              Platform Launch
+            </a>
           </div>
-          <div className="hover:bg-mainPurple flex mt-3 items-center">
-            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
-            <a href="" className="text-lg  ">Marketing Plan</a>
+          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full flex mt-3 items-center p-2">
+            <span className="ml-4 pr-4">
+              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
+            </span>
+            <a href="" className="text-lg text-mediumGrey hover:text-white">
+              Marketing Plan
+            </a>
           </div>
-          <div className="hover:bg-mainPurple  flex mt-3 items-center">
-            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
-            <a href="" className="text-lg ">Roadmap</a>
+          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
+            <span className="ml-4 pr-4">
+              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
+            </span>
+            <a href="" className="text-lg text-mediumGrey hover:text-white">
+              Roadmap
+            </a>
           </div>
-          <div className="hover:bg-mainPurple flex mt-3 items-center">
-            <span className="ml-6 pr-4"><img src="..\src\assets\icon-board.svg" alt=""  className="w-5"/></span>
-            <a href="" className="text-lg ">+Create New Board</a>
+          <div className=" flex mt-3 items-center">
+            <span className="ml-6 pr-4">
+              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
+            </span>
+            <a href="" className=" text-sm text-mainPurple font-bold">
+              +Create New Board
+            </a>
           </div>
-     
+        </div>
+
+        <div className=" flex bg-lightGrey  p-5 justify-between items-center">
+          <span><img src="..\src\assets\icon-light-theme.svg" alt="" /></span>
+          <span><img src="..\src\assets\Group 8.svg" alt="" /></span>
+          <span><img src="..\src\assets\icon-dark-theme.svg" alt="" /></span>
+        </div>
+
+        <div className=" flex  bg-lightGrey">
+          <span className="text-center">sdfsdf</span>
         </div>
       </nav>
     </>
