@@ -63,14 +63,14 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className=" flex bg-lightGrey  p-5 justify-between items-center">
+        <div className=" flex bg-lightGrey  p-5 w-48 items-center justify-between m-4">
           <span><img src="..\src\assets\icon-light-theme.svg" alt="" /></span>
           <span><img src="..\src\assets\Group 8.svg" alt="" /></span>
           <span><img src="..\src\assets\icon-dark-theme.svg" alt="" /></span>
         </div>
 
         <div className=" flex  bg-lightGrey">
-          <span className="text-center">sdfsdf</span>
+          <span className="text-center"><img src="..\src\assets" alt="" /></span>
         </div>
       </nav>
     </>
