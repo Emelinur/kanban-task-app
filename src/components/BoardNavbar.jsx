@@ -1,4 +1,4 @@
-export function Navbar() {
+export function BoardNavbar() {
   return (
     <>
       <nav className="text-3xl w-56 bg-white border-r-2 border-border flex flex-col  justify-between  items-baseline">
@@ -27,7 +27,7 @@ export function Navbar() {
           <span className="font-bold">Kanban</span>
         </div>
 
-        <div>
+        <div className="w-full">
           <h5 className="text-xl ml-6">ALL BOARDS</h5>
           <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
             <span className="ml-4 pr-4">
@@ -63,15 +63,19 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className=" flex bg-lightGrey  p-5 w-48 items-center justify-between m-4">
+        <div>
+          <div className=" ml-4 bg-lightGrey flex   p-5 w-48  justify-between items-center">
           <span><img src="..\src\assets\icon-light-theme.svg" alt="" /></span>
           <span><img src="..\src\assets\Group 8.svg" alt="" /></span>
           <span><img src="..\src\assets\icon-dark-theme.svg" alt="" /></span>
+          </div>
+          <div className=" flex  items-center mb-5 ">
+          <span className="p-4"><img src="..\src\assets\icon-hide-sidebar.svg" alt="" /></span>
+          <p className="text-lg text-mediumGrey">Hide Sidebar</p>
+        </div>
         </div>
 
-        <div className=" flex  bg-lightGrey">
-          <span className="text-center"><img src="..\src\assets" alt="" /></span>
-        </div>
+    
       </nav>
     </>
   );
