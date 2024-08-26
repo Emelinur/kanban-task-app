@@ -1,7 +1,12 @@
 export function BoardNavbar() {
+
+
+
+
+  
   return (
     <>
-      <nav className="text-3xl w-300 bg-white border-r-2 border-border flex flex-col">
+      <nav className="max-sm:w-auto max-sm:h-auto w-300  bg-white border-r-2 border-border flex flex-col ">
         <img className="w-2/4  m-7" src="src/assets/logo-dark.svg" alt="logo" />
 
         <div className="w-276">
@@ -21,12 +26,12 @@ export function BoardNavbar() {
             <span className="ml-4 pr-4">
               <img
                 src="..\src\assets\icon-board.svg"
-                alt=""
+                alt="icon-board"
                 className="w-5 hover:bg-white"
               />
             </span>
             <a
-              href=""
+              href="#"
               className="text-lg font-bold text-mediumGrey hover:text-white"
             >
               Marketing Plan
@@ -37,7 +42,7 @@ export function BoardNavbar() {
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
             <a
-              href=""
+              href="#"
               className="text-lg font-bold text-mediumGrey hover:text-white"
             >
               Roadmap
@@ -47,40 +52,34 @@ export function BoardNavbar() {
             <span className="ml-4 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-            <a href="" className=" text-lg text-mainPurple font-bold">
+            <a href="#" className=" text-lg text-mainPurple font-bold">
               +Create New Board
             </a>
           </div>
         </div>
 
-        <div>
-          <div className=" mt-56 ml-4 bg-lightGreyBG  p-6 w-251 h-3 flex justify-center items-center">
-            <span>
-              <img
-                src="..\src\assets\icon-light-theme.svg"
-                alt=""
-                className="p-3"
-              />
-            </span>
-            <span>
-              <img src="..\src\assets\Group 8.svg" alt="" className="p-3" />
-            </span>
-            <span>
-              <img
-                src="..\src\assets\icon-dark-theme.svg"
-                alt=""
-                className="p-3"
-              />
-            </span>
+        <div className=" max-sm:h-screen flex flex-col justify-end h-screen">
+          <div className="ml-4 bg-lightGreyBG  p-6 w-251 h-3 flex justify-center items-center ">
+            <img
+              src="..\src\assets\icon-light-theme.svg"
+              alt="icon-ligth"
+              className="p-3"
+            />
+            <img src="..\src\assets\Group 8.svg" alt="" className="p-3" />
+            <img
+              src="..\src\assets\icon-dark-theme.svg"
+              alt=""
+              className="p-3"
+            />
           </div>
-          <div className=" flex  items-center mb-5 ">
+          <button className=" flex  items-center mb-5 ">
             <img
               className="p-4 ml-4"
               src="..\src\assets\icon-hide-sidebar.svg"
-              alt=""
+              alt="icon-hide"
             />
             <p className="text-lg text-mediumGrey">Hide Sidebar</p>
-          </div>
+          </button >
         </div>
       </nav>
     </>

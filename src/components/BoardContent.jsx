@@ -1,7 +1,7 @@
-export function BoardContent(){
-  return(
-      <>
-          <div className="flex flex-col justify-center items-center flex-grow">
+export function BoardContent() {
+  return (
+    <>
+      <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">
         <p className="text-mediumGrey mb-4">
           This board is empty. Create a new column to get started.
         </p>
@@ -9,6 +9,6 @@ export function BoardContent(){
           + Add New Column
         </button>
       </div>
-      </>
-  )
+    </>
+  );
 }
