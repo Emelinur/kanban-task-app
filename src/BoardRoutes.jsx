@@ -5,7 +5,7 @@ export default function BoardRoutes(){
   return(
 <>
 <Router>
-<Route path="/platformlaunch" element={<Board />}></Route>
+<Route path="/platformlaunch" element={<Board />}/>
 </Router>
 </>
 
