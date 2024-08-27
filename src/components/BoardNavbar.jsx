@@ -1,26 +1,21 @@
+import { NavLink } from "react-router-dom";
 export function BoardNavbar() {
-
-
-
-
-  
   return (
     <>
       <nav className="max-sm:w-auto max-sm:h-auto w-300  bg-white border-r-2 border-border flex flex-col ">
-        <img className="w-2/4  m-7" src="src/assets/logo-dark.svg" alt="logo" />
-
+        <NavLink to="/"><img className="w-2/4  m-7" src="src/assets/logo-dark.svg" alt="logo" /></NavLink>
         <div className="w-276">
           <h5 className="text-xl m-7">ALL BOARDS ( 3 ) </h5>
           <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
             <span className="ml-4 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-            <a
-              href=""
+            <NavLink
               className="text-lg font-bold text-mediumGrey  hover:text-white"
+              to="/platformlaunch"
             >
               Platform Launch
-            </a>
+            </NavLink>
           </div>
           <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full flex mt-3 items-center p-2">
             <span className="ml-4 pr-4">
@@ -30,31 +25,25 @@ export function BoardNavbar() {
                 className="w-5 hover:bg-white"
               />
             </span>
-            <a
-              href="#"
+
+            <NavLink
               className="text-lg font-bold text-mediumGrey hover:text-white"
+              to="/marketingplan"
             >
               Marketing Plan
-            </a>
+            </NavLink>
           </div>
           <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
             <span className="ml-4 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-            <a
-              href="#"
-              className="text-lg font-bold text-mediumGrey hover:text-white"
-            >
-              Roadmap
-            </a>
+            <NavLink  className="text-lg font-bold text-mediumGrey hover:text-white" to="/roadmap">Roadmap</NavLink>
           </div>
           <div className=" flex mt-3 p-2 items-center">
             <span className="ml-4 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-            <a href="#" className=" text-lg text-mainPurple font-bold">
-              +Create New Board
-            </a>
+            <NavLink className=" text-lg text-mainPurple font-bold" to="createnewboard"> +Create New Board</NavLink>  
           </div>
         </div>
 
@@ -79,7 +68,7 @@ export function BoardNavbar() {
               alt="icon-hide"
             />
             <p className="text-lg text-mediumGrey">Hide Sidebar</p>
-          </button >
+          </button>
         </div>
       </nav>
     </>
