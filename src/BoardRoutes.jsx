@@ -1,12 +1,12 @@
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import { Board } from "./components/Board";
 export default function BoardRoutes(){
   return(
 <>
-<Routes>
+<Router>
 <Route path="/platformlaunch" element={<Board />}></Route>
-</Routes>
+</Router>
 </>
 
 
