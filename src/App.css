@@ -4,8 +4,6 @@
 @layer base{
 html{
 font-family:"Plus Jakarta";
-
-
 }
 
 body{
@@ -13,5 +11,11 @@ body{
 
 }
 
+.openMenu{
+ @apply block;
+}
+.closeMenu{
+  @apply bg-none bg-mainPurple ml-0 border-r-4
+}
 
 }
