@@ -1,89 +1,79 @@
-// import "..\App.css"
+import "../App.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { ThemeIcon } from "./ThemeIcon";
 
-export function BoardNavbar() {
-  const [visible,setVisible]=useState(true)
-
-  function visibleClick(){
-console.log("tıklandı")
-    setVisible(!visible)
-  }
-
+export function BoardNavbar({ visibilityMenu, themeClick, theme }) {
   return (
     <>
-      <nav className={`max-sm:w-auto max-sm:h-auto w-300  bg-white border-r-2 border-border flex flex-col ${visible ? "block" : "hidden"} `}>
+      <nav
+        className={`w-300  bg-white flex flex-col justify-between border-r-2 border-border
+          dark:bg-darkGrey dark:border-r-linesDark
+           ${visibilityMenu ? "block" : "hidden"}`}
+      >
         <div className="w-276">
           <h5 className="text-xl m-7">ALL BOARDS ( 3 ) </h5>
-          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
-            <span className="ml-4 pr-4">
+          <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple   flex mt-3 p-2">
+            <span className="flex items-center justify-center hover:brightness-0 hover:invert">
+              <span className="ml-7 pr-4 ">
+                <img
+                  src="..\src\assets\icon-board.svg"
+                  alt="icon-board"
+                  className="w-5 "
+                />
+              </span>
+              <NavLink
+                className="text-lg font-bold text-mediumGrey hover:brightness-0 hover:invert"
+                to="/platformlaunch"
+              >
+                Platform Launch
+              </NavLink>
+            </span>
+          </div>
+          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  border-r-mainPurple  flex mt-3 items-center p-2">
+            <span className="flex items-center justify-center hover:brightness-0 hover:invert">
+              <span className="ml-7 pr-4">
+                <img
+                  src="..\src\assets\icon-board.svg"
+                  alt=""
+                  className="w-5"
+                />
+              </span>
+              <NavLink
+                className="text-lg font-bold text-mediumGrey"
+                to="/marketingplan"
+              >
+                Marketing Plan
+              </NavLink>
+            </span>
+          </div>
+          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  border-r-mainPurple   flex mt-3 items-center p-2">
+            <span className="flex items-center justify-center hover:brightness-0 hover:invert">
+              <span className="ml-7 pr-4">
+                <img
+                  src="..\src\assets\icon-board.svg"
+                  alt=""
+                  className="w-5"
+                />
+              </span>
+              <NavLink
+                className="text-lg font-bold text-mediumGrey"
+                to="/roadmap"
+              >
+                Roadmap
+              </NavLink>
+            </span>
+          </div>
+          <div className=" flex mt-3 p-2 items-center ">
+            <span className="ml-7 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-
-
-            
-            <NavLink
-            className="text-lg font-bold text-mediumGrey hover:text-white"
-            to="/platformlaunch"
-          >
-            Platform Launch
-          </NavLink>
-          </div>
-          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full flex mt-3 items-center p-2">
-            <span className="ml-4 pr-4">
-              <img
-                src="..\src\assets\icon-board.svg"
-                alt="icon-board"
-                className="w-5 hover:bg-white"
-              />
-            </span>
-
-            <NavLink
-              className="text-lg font-bold text-mediumGrey hover:text-white"
-              to="/marketingplan"
-            >
-              Marketing Plan
-            </NavLink>
-          </div>
-          <div className="hover:bg-mainPurple hover:border-r-2 rounded-r-full  flex mt-3 items-center p-2">
-            <span className="ml-4 pr-4">
-              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
-            </span>
-            <NavLink  className="text-lg font-bold text-mediumGrey hover:text-white" to="/roadmap">Roadmap</NavLink>
-          </div>
-          <div className=" flex mt-3 p-2 items-center">
-            <span className="ml-4 pr-4">
-              <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
-            </span>
-            <NavLink className=" text-lg text-mainPurple font-bold" to="createnewboard"> +Create New Board</NavLink>  
+            <button className=" text-lg text-mainPurple font-bold">
+              +Create New Board
+            </button>
           </div>
         </div>
-
-        <div className=" max-sm:h-screen flex flex-col justify-end h-screen">
-          <div className="ml-4 bg-lightGreyBG  p-6 w-251 h-3 flex justify-center items-center ">
-            <img
-              src="..\src\assets\icon-light-theme.svg"
-              alt="icon-ligth"
-              className="p-3"
-            />
-            <img src="..\src\assets\Group 8.svg" alt="" className="p-3" />
-            <img
-              src="..\src\assets\icon-dark-theme.svg"
-              alt=""
-              className="p-3"
-            />
-          </div>
-        </div>
-        <button className={ `flex items-center mb-5 ${visible ? "openMenu" : "closeMenu"}`} onClick={visibleClick}>
-            <img
-              className="p-4 ml-4"
-              src="..\src\assets\icon-hide-sidebar.svg"
-              alt="icon-hide"
-            />
-            <p className="text-lg text-mediumGrey">Hide Sidebar</p>
-          </button>
+        <ThemeIcon themeClick={themeClick} theme={theme} />
       </nav>
-
     </>
   );
 }

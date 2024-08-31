@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -17,10 +18,14 @@ export default {
         redHover:"#FF9898",
         border: "#E4EBFA",
       },
+      
     width:{
       "300":"18.75rem",
       "276":"17.25rem",
       "251":"15.688rem",
+    },
+    height:{
+      "37":"37rem"
     },
 
     },

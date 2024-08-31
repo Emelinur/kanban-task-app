@@ -1,21 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base{
-html{
-font-family:"Plus Jakarta";
-}
+@layer base {
+  html {
+    font-family: "Plus Jakarta";
+  }
 
-body{
-@apply bg-lightGreyBG
+  body {
+    @apply bg-lightGreyBG dark:bg-veryDarkGreyBG;
+  }
 
-}
-
-.openMenu{
- @apply block;
-}
-.closeMenu{
-  @apply bg-none bg-mainPurple ml-0 border-r-4
-}
-
+  .closeMenu {
+    @apply bg-mainPurple w-16 h-auto  border-r-mainPurple border-r-2 rounded-r-full  !important;
+  }
 }
