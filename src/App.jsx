@@ -35,7 +35,6 @@ export default function App() {
             theme={theme}
           />
           <BoardRoutes />
-          <BoardContent />
         </div>
         <BoardFooter
           VisibilityBoard={VisibilityBoard}

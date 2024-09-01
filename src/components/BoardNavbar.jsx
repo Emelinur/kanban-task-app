@@ -1,6 +1,7 @@
 import "../App.css";
 import { NavLink } from "react-router-dom";
 import { ThemeIcon } from "./ThemeIcon";
+import { Board } from "./Board";
 
 export function BoardNavbar({ visibilityMenu, themeClick, theme }) {
   return (

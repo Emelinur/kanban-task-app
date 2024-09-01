@@ -11,6 +11,6 @@
   }
 
   .closeMenu {
-    @apply bg-mainPurple w-16 h-auto  border-r-mainPurple border-r-2 rounded-r-full  !important;
+    @apply  bg-mainPurple w-16 h-auto  border-r-mainPurple border-r-2 rounded-r-full  !important;
   }
 }

@@ -7,16 +7,16 @@ export function ThemeIcon({ themeClick, theme }) {
         {theme === "light" ? (
           <button
             onClick={themeClick}
-            className="flex justify-between item-center"
+            className="flex justify-between items-center-center"
           >
             <img
-              src="..\src\assets\icon-light-theme.svg"
+              src="..\src\assets\icon-light-theme.svg "
               alt=""
               className="p-2"
             />
             <img src="..\src\assets\leftcircle.svg" alt="" className="p-2" />
             <img
-              src="..\src\assets\icon-dark-theme.svg"
+              src="..\src\assets\icon-dark-theme.svg "
               alt=""
               className="p-2"
             />
@@ -28,18 +28,16 @@ export function ThemeIcon({ themeClick, theme }) {
         {theme === "dark" ? (
           <button
             onClick={themeClick}
-            className="flex justify-between item-center"
+            className="flex justify-between items-center"
           >
             <img
-              src="..\src\assets\icon-light-theme.svg"
+              src="..\src\assets\icon-light-theme.svg "
               alt=""
               className="p-2"
             />
             <img src="..\src\assets\rigthcircle.svg" alt="" className="p-2" />
-            <img
-              src="..\src\assets\icon-dark-theme.svg"
-              alt=""
-              className="p-2"
+            <img src="..\src\assets\icon-dark-theme.svg" alt=""
+            className="p-2"
             />
           </button>
         ) : (

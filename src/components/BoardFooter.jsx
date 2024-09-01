@@ -3,8 +3,7 @@ export function BoardFooter({ VisibilityBoard, visibilityMenu }) {
   return (
     <>
       <button
-        className={`w-300 flex items-center bg-white border-r-2 border-border
-         dark:bg-darkGrey dark:border-r-linesDark
+        className={`w-300 flex items-center bg-white border-r-2 border-border  transition-all duration-500 ease-in-out dark:bg-darkGrey dark:border-r-linesDark
            ${visibilityMenu ? "block" : "closeMenu"}`}
         onClick={VisibilityBoard}
       >
@@ -15,7 +14,7 @@ export function BoardFooter({ VisibilityBoard, visibilityMenu }) {
             alt="hide-sidebar"
           />
           <img
-            className={`p-4  ${visibilityMenu ? "hidden" : "closeMenu"}`}
+            className={`p-4  tra ${visibilityMenu ? "hidden" : "closeMenu"}`}
             src="..\src\assets\eye.svg"
             alt="icon-eye-closed"
           />

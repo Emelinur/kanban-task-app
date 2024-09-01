@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import { Board } from "./components/Board";
+import { BoardContent } from "./components/BoardContent";
 
 export default function BoardRoutes() {
   return (
     <Routes>
-      <Route path="/platformlaunch" element={<Board />} />
-      <Route path="/marketingplan" element={<Board />} />
-      <Route path="/roadmap" element={<Board />} />
+      <Route path="/platformlaunch" element={<BoardContent />} />
+      <Route path="/marketingplan" element={<BoardContent />} />
+      <Route path="/roadmap" element={<BoardContent />} />
     </Routes>
   );
 }

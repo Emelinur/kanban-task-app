@@ -13,6 +13,7 @@ export default {
         linesLight: "#E4EBFA",
         lightGreyBG: "#F4F7FD",
         mainPurple: "#635FC7",
+        mainPurpleLight:"rgba(99, 95, 199, 0.1)",
         mainPurpleHover: "#A8A4FF",
         red:"#EA5555",
         redHover:"#FF9898",
@@ -23,9 +24,11 @@ export default {
       "300":"18.75rem",
       "276":"17.25rem",
       "251":"15.688rem",
+      "480":"26.813rem"
     },
     height:{
-      "37":"37rem"
+      "37":"37rem",
+     "480":"26.813rem"
     },
 
     },
