@@ -1,5 +1,4 @@
 import "./App.css";
-import { BoardContent } from "./components/BoardContent";
 import { BoardHeader } from "./components/BoardHeader";
 import { BoardNavbar } from "./components/BoardNavbar";
 import BoardRoutes from "./BoardRoutes";
