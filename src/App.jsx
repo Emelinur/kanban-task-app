@@ -4,6 +4,7 @@ import { BoardNavbar } from "./components/BoardNavbar";
 import BoardRoutes from "./BoardRoutes";
 import { BoardFooter } from "./components/BoardFooter";
 import { useState } from "react";
+import { BoardContent } from "./components/BoardContent";
 
 export default function App() {
   const [visibilityMenu, setvisibilityMenu] = useState(true);
@@ -27,18 +28,24 @@ export default function App() {
     <>
       <div className="flex flex-col h-screen">
         <BoardHeader  theme={theme} />
-        <div className="flex flex-grow">
+
+        <div className="flex flex-grid h-screen">
+
           <BoardNavbar
             visibilityMenu={visibilityMenu}
             themeClick={themeClick}
             theme={theme}
           />
-          <BoardRoutes />
+         
+         <BoardRoutes />
+          
         </div>
+      
         <BoardFooter
           VisibilityBoard={VisibilityBoard}
           visibilityMenu={visibilityMenu}
         />
+
       </div>
     </>
   );
