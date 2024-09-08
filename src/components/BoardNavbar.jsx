@@ -1,9 +1,15 @@
 import "../App.css";
 import { NavLink } from "react-router-dom";
 import { ThemeIcon } from "./ThemeIcon";
+import { useState } from "react";
 import { Board } from "./Board";
+export function BoardNavbar({ visibilityMenu, themeClick, theme, newBoard }) {
+  const [showBoard, setShowBoard] = useState(false);
 
-export function BoardNavbar({ visibilityMenu, themeClick, theme }) {
+  const newBoardClick = () => {
+    setShowBoard(!showBoard);
+  };
+
   return (
     <>
       <nav
@@ -68,13 +74,22 @@ export function BoardNavbar({ visibilityMenu, themeClick, theme }) {
             <span className="ml-7 pr-4">
               <img src="..\src\assets\icon-board.svg" alt="" className="w-5" />
             </span>
-            <button className=" text-lg text-mainPurple font-bold">
+            <button
+              className=" text-lg text-mainPurple font-bold"
+              onClick={newBoardClick}
+            >
               +Create New Board
             </button>
           </div>
         </div>
         <ThemeIcon themeClick={themeClick} theme={theme} />
       </nav>
+
+      {showBoard && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm ">
+          <Board newBoard={newBoard} />
+        </div>
+      )}
     </>
   );
 }
