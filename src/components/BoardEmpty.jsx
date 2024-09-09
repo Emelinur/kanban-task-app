@@ -1,5 +1,4 @@
-
-export function BoardContent() {
+export function BoardEmpty() {
   return (
     <>
  <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">

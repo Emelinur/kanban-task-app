@@ -1,5 +1,4 @@
-import { useState } from "react";
-export function BoardFooter({ VisibilityBoard, visibilityMenu }) {
+export function SideBarFooter({ VisibilityBoard, visibilityMenu }) {
   return (
     <>
       <button

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ThemeIcon } from "./ThemeIcon";
 import { useState } from "react";
 import { Board } from "./Board";
-export function BoardNavbar({ visibilityMenu, themeClick, theme, newBoard }) {
+export function SideBar({ visibilityMenu, themeClick, theme,}) {
   const [showBoard, setShowBoard] = useState(false);
 
   const newBoardClick = () => {
@@ -87,7 +87,7 @@ export function BoardNavbar({ visibilityMenu, themeClick, theme, newBoard }) {
 
       {showBoard && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm ">
-          <Board newBoard={newBoard} />
+          <Board/>
         </div>
       )}
     </>

@@ -1,10 +1,9 @@
 import "./App.css";
-import { BoardHeader } from "./components/BoardHeader";
-import { BoardNavbar } from "./components/BoardNavbar";
+import { NavBar } from "./components/NavBar";
+import { SideBar } from "./components/SideBar";
 import BoardRoutes from "./BoardRoutes";
-import { BoardFooter } from "./components/BoardFooter";
+import { SideBarFooter } from "./components/SideBarFooter";
 import { useState } from "react";
-import { BoardContent } from "./components/BoardContent";
 
 export default function App() {
   const [visibilityMenu, setvisibilityMenu] = useState(true);
@@ -27,11 +26,11 @@ export default function App() {
   return (
     <>
       <div className="flex flex-col h-screen">
-        <BoardHeader  theme={theme} />
+        <NavBar  theme={theme} />
 
         <div className="flex flex-grid h-screen">
 
-          <BoardNavbar
+          <SideBar
             visibilityMenu={visibilityMenu}
             themeClick={themeClick}
             theme={theme}
@@ -41,7 +40,7 @@ export default function App() {
           
         </div>
       
-        <BoardFooter
+        <SideBarFooter
           VisibilityBoard={VisibilityBoard}
           visibilityMenu={visibilityMenu}
         />

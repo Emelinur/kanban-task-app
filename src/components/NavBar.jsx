@@ -1,4 +1,4 @@
-export function BoardHeader({ theme}) {
+export function NavBar({theme}) {
   return (
     <>
       <header className=" bg-white flex dark:bg-darkGrey">
