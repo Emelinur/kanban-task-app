@@ -18,6 +18,10 @@ export default {
         red:"#EA5555",
         redHover:"#FF9898",
         border: "#E4EBFA",
+        borderTodo:"#49C4E5",
+        borderDo:"#8471F2",
+        borderDone:"#67E2AE",
+        linear:"#E9EFFA"
       },
       
     width:{
