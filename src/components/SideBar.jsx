@@ -13,7 +13,7 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
   return (
     <>
       <nav
-        className={`w-300  bg-white flex flex-col justify-between border-r-2 border-border
+        className={`w-300 bg-white flex flex-col justify-between border-r-2 border-border
           dark:bg-darkGrey dark:border-r-linesDark
            ${visibilityMenu ? "block" : "hidden"}`}
       >
@@ -83,6 +83,7 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
           <CreateNewBoard />
         </div>
       )}
+        
     </>
   );
 }
