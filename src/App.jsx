@@ -28,12 +28,14 @@ export default function App() {
     <>
       <div className="flex flex-col h-screen">
         <NavBar theme={theme} />
-     
-        <div className="flex flex-grid h-screen">
-          <SideBar visibilityMenu={visibilityMenu}
+
+        <div className="flex flex-row h-screen">
+          <SideBar
+            visibilityMenu={visibilityMenu}
             themeClick={themeClick}
-            theme={theme}/>
-          <Board/>
+            theme={theme}
+          />
+          <Board />
           {/* <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">
             <p className="text-mediumGrey mb-4">
               This board is empty. Create a new column to get started.
@@ -43,12 +45,13 @@ export default function App() {
             </button>
           </div> */}
         </div>
-
-        <SideBarFooter
-          VisibilityBoard={VisibilityBoard}
-          visibilityMenu={visibilityMenu}
-        />
-           
+        
+        <div>
+          <SideBarFooter
+            VisibilityBoard={VisibilityBoard}
+            visibilityMenu={visibilityMenu}
+          />
+        </div>
       </div>
     </>
   );
