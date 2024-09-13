@@ -2,8 +2,8 @@ export function SideBarFooter({ VisibilityBoard, visibilityMenu }) {
   return (
     <>
       <button
-        className={`w-300 flex items-center bg-white border-r-2 border-border  transition-all duration-500 ease-in-out dark:bg-darkGrey dark:border-r-linesDark
-           ${visibilityMenu ? "block" : "closeMenu"}`}
+        className={`w-80 flex items-center bg-white border-r-2 border-border  transition-all duration-500 ease-in-out dark:bg-darkGrey dark:border-r-linesDark
+           ${visibilityMenu ? "block" : "closeMenu"} max-sm:w-300`}
         onClick={VisibilityBoard}
       >
         <div className=" flex  items-center">

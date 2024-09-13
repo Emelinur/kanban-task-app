@@ -23,12 +23,6 @@ export default {
         borderDone:"#67E2AE",
         linear:"#E9EFFA"
       },
-      
-    width:{
-      "300":"18.75rem",
-      "251":"15.688rem",
-      "480":"26.813rem"
-    },
     height:{
       "37":"37rem",
      "480":"26.813rem",

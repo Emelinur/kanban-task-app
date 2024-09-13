@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col  h-screen ">
         <NavBar theme={theme} />
 
         <div className="flex flex-row h-screen">
@@ -45,7 +45,7 @@ export default function App() {
             </button>
           </div> */}
         </div>
-        
+
         <div>
           <SideBarFooter
             VisibilityBoard={VisibilityBoard}

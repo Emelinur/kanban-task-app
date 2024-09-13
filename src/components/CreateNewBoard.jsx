@@ -75,10 +75,10 @@ export function CreateNewBoard() {
 
                   <button
                     type="reset"
-                    className="m-2"
+                    className="m-2 ml-3 pr-4"
                     onClick={() => removeColumn(index)}
                   >
-                    <img src="..\src\assets\icon-cross.svg" alt="icon-cross" />
+                    <img src="..\src\assets\icon-cross.svg" alt="icon-cross" className="w-5 "  />
                   </button>
                 </div>
               ))}
