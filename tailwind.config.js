@@ -23,11 +23,6 @@ export default {
         borderDone:"#67E2AE",
         linear:"#E9EFFA"
       },
-    height:{
-      "37":"37rem",
-     "480":"26.813rem",
-    },
-
     },
   },
   plugins: [],
