@@ -1,7 +1,25 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export function CreateNewBoard() {
+export function CreateNewBoard({ onClose }) {
+  const formRef = useRef(null); // Form referansı için ref oluşturuyoruz
+  console.log(formRef)
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        onClose();
+        console.log(onClose()) // Form dışına tıklanırsa formu kapatma fonksiyonunu çağır
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    console.log(document.addEventListener("mousedown", handleClickOutside))
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -32,9 +50,9 @@ export function CreateNewBoard() {
   };
   return (
     <>
-      <form className="w-480 h-429 r drop-shadow-xl " onSubmit={handleSubmit}>
+      <form className="w-96 h-96 r drop-shadow-xl " onSubmit={handleSubmit}>
         <div className="w-full bg-white p-5 dark:bg-darkGrey">
-          <div className="border-b border-gray-900/10 pb-4 ">
+          <div className=" pb-4 ">
             <h1 className=" font-bold  text-black dark:text-white">
               Add New Board
             </h1>
