@@ -1,8 +1,8 @@
 export function Board() {
   return (
     <>
-      <div className="w-1/2 flex flex-row justify-between items-start ">
-        <div className="flex flex-row h-full m-2">
+      <div className="w-6/12 flex flex-row justify-between items-start  ">
+        <div className="flex flex-row h-full m-2w-screen">
           <div className=" flex flex-col items-start m-1 ml-2">
             <div className="flex justify-start items-center mb-4">
               <img
