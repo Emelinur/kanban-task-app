@@ -79,7 +79,7 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
       </nav>
 
       {showBoard && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm ">
           <CreateNewBoard />
         </div>
       )}
