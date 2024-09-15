@@ -3,12 +3,16 @@ import { CreateNewBoard } from "./CreateNewBoard";
 import { ThemeIcon } from "./ThemeIcon";
 import { useState } from "react";
 
-export function SideBar({ visibilityMenu, themeClick, theme }) {
+export function SideBar({ visibilityMenu, themeClick, theme,onClose }) {
   const [showBoard, setShowBoard] = useState(false);
 
   const newBoardClick = () => {
     setShowBoard(!showBoard);
   };
+const handleClose=()=>{
+  setShowBoard(false)
+}
+
 
   return (
     <>
@@ -80,7 +84,7 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
 
       {showBoard && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm ">
-          <CreateNewBoard />
+          <CreateNewBoard onClose={handleClose} />
         </div>
       )}
     </>

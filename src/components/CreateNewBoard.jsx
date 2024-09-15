@@ -2,19 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export function CreateNewBoard({ onClose }) {
-  const formRef = useRef(null); // Form referansı için ref oluşturuyoruz
-  console.log(formRef)
-  
+  const formRef = useRef(null); // Form referansını oluşturur
+
   useEffect(() => {
+    // Form dışına tıklama olayını dinleyen fonksiyon
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
-        onClose();
-        console.log(onClose()) // Form dışına tıklanırsa formu kapatma fonksiyonunu çağır
+        console.log("Form dışına tıklandı!"); // Konsola mesaj yazdırır
+        onClose(); // Form dışına tıklandığında onClose fonksiyonunu çağırır
       }
     };
 
+    // Olay dinleyicisini ekler
     document.addEventListener("mousedown", handleClickOutside);
-    console.log(document.addEventListener("mousedown", handleClickOutside))
+    // Temizlik fonksiyonu: Olay dinleyicisini kaldırır
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -23,10 +24,9 @@ export function CreateNewBoard({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const handleInputType = (event) => {
-    console.log(event.target);
-  };
+
   const [columns, setColumns] = useState([]);
+  
   const addColumn = () => {
     const newCol = {
       id: uuidv4(),
@@ -37,23 +37,29 @@ export function CreateNewBoard({ onClose }) {
             name="columns"
             id="columns"
             autoComplete="columns"
-            className="block flex-1 border-0 bg-transparent py-1.5 pl-1  text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
+            className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
             placeholder=""
           />
         </div>
       ),
     };
-    setColumns((prev) => [...prev, newCol]);
+    setColumns((prev) => [...prev, newCol]); // Yeni sütunu mevcut sütunlara ekler
   };
+
   const removeColumn = (index) => {
-    setColumns((prev) => prev.filter((_, i) => i !== index));
+    setColumns((prev) => prev.filter((_, i) => i !== index)); // Belirtilen indeksteki sütunu kaldırır
   };
+
   return (
     <>
-      <form className="w-96 h-96 r drop-shadow-xl " onSubmit={handleSubmit}>
+      <form
+        ref={formRef} // Form referansını ata
+        className="w-96 h-96 drop-shadow-xl" // Gereksiz "r" sınıfını kaldırdım
+        onSubmit={handleSubmit}
+      >
         <div className="w-full bg-white p-5 dark:bg-darkGrey">
-          <div className=" pb-4 ">
-            <h1 className=" font-bold  text-black dark:text-white">
+          <div className="pb-4">
+            <h1 className="font-bold text-black dark:text-white">
               Add New Board
             </h1>
             <div className="mt-5 grid grid-cols-1 sm:grid-cols-6">
@@ -72,14 +78,14 @@ export function CreateNewBoard({ onClose }) {
                       id="name"
                       autoComplete="name"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder="e.g Web Desing"
+                      placeholder="e.g Web Design" // Placeholder metnini düzelttim
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-5 flex flex-col sm:grid-cols-6">
-              <div className="sm:col-span-full m-2 ml-0 ">
+              <div className="sm:col-span-full m-2 ml-0">
                 <label
                   htmlFor="columns"
                   className="block text-sm leading-6 text-mediumGrey font-bold dark:text-white"
@@ -90,19 +96,22 @@ export function CreateNewBoard({ onClose }) {
               {columns.map((item, index) => (
                 <div className="mt-2 flex" key={item.id}>
                   {item.element}
-
                   <button
-                    type="reset"
+                    type="button" // "reset" yerine "button" kullanarak formun varsayılan davranışını engeller
                     className="m-2 ml-3 pr-4"
                     onClick={() => removeColumn(index)}
                   >
-                    <img src="..\src\assets\icon-cross.svg" alt="icon-cross" className="w-5 "  />
+                    <img
+                      src="..\src\assets\icon-cross.svg"
+                      alt="icon-cross"
+                      className="w-5"
+                    />
                   </button>
                 </div>
               ))}
               <button
                 type="button"
-                className=" w-full rounded-full bg-mainPurpleLight px-3 py-2 text-sm font-bold shadow-sm hover:bg-mainPurpleHover text-mainPurple dark:bg-white "
+                className="w-full rounded-full bg-mainPurpleLight px-3 py-2 text-sm font-bold shadow-sm hover:bg-mainPurpleHover text-mainPurple dark:bg-white"
                 onClick={addColumn}
               >
                 + Add New Column
@@ -111,7 +120,7 @@ export function CreateNewBoard({ onClose }) {
           </div>
           <button
             type="submit"
-            className=" w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
+            className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
           >
             Create New Board
           </button>
