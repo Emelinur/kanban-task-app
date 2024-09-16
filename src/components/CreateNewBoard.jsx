@@ -2,31 +2,29 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export function CreateNewBoard({ onClose }) {
-  const formRef = useRef(null); // Form referansını oluşturur
+  const formRef = useRef(null);
 
   useEffect(() => {
-    // Form dışına tıklama olayını dinleyen fonksiyon
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
-        console.log("Form dışına tıklandı!"); // Konsola mesaj yazdırır
-        onClose(); // Form dışına tıklandığında onClose fonksiyonunu çağırır
+        onClose();
       }
     };
-
-    // Olay dinleyicisini ekler
     document.addEventListener("mousedown", handleClickOutside);
-    // Temizlik fonksiyonu: Olay dinleyicisini kaldırır
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+
+
+  const [boardname,setBardName]=useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const [columns, setColumns] = useState([]);
-  
+
   const addColumn = () => {
     const newCol = {
       id: uuidv4(),
@@ -43,18 +41,18 @@ export function CreateNewBoard({ onClose }) {
         </div>
       ),
     };
-    setColumns((prev) => [...prev, newCol]); // Yeni sütunu mevcut sütunlara ekler
+    setColumns((prev) => [...prev, newCol]);
   };
 
   const removeColumn = (index) => {
-    setColumns((prev) => prev.filter((_, i) => i !== index)); // Belirtilen indeksteki sütunu kaldırır
+    setColumns((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
     <>
       <form
-        ref={formRef} // Form referansını ata
-        className="w-96 h-96 drop-shadow-xl" // Gereksiz "r" sınıfını kaldırdım
+        ref={formRef}
+        className="w-96 h-96 drop-shadow-xl"
         onSubmit={handleSubmit}
       >
         <div className="w-full bg-white p-5 dark:bg-darkGrey">
@@ -76,10 +74,13 @@ export function CreateNewBoard({ onClose }) {
                       type="text"
                       name="name"
                       id="name"
+                      value={boardname}
+                      onChange={(e)=>{setBardName(e.target.value)}}
                       autoComplete="name"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder="e.g Web Design" // Placeholder metnini düzelttim
+                      placeholder="e.g Web Design"
                     />
+                    <p>{name}</p>
                   </div>
                 </div>
               </div>
@@ -97,7 +98,7 @@ export function CreateNewBoard({ onClose }) {
                 <div className="mt-2 flex" key={item.id}>
                   {item.element}
                   <button
-                    type="button" // "reset" yerine "button" kullanarak formun varsayılan davranışını engeller
+                    type="button"
                     className="m-2 ml-3 pr-4"
                     onClick={() => removeColumn(index)}
                   >
@@ -120,6 +121,7 @@ export function CreateNewBoard({ onClose }) {
           </div>
           <button
             type="submit"
+            value="Create New Board"
             className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
           >
             Create New Board

@@ -3,16 +3,15 @@ import { CreateNewBoard } from "./CreateNewBoard";
 import { ThemeIcon } from "./ThemeIcon";
 import { useState } from "react";
 
-export function SideBar({ visibilityMenu, themeClick, theme,onClose }) {
+export function SideBar({ visibilityMenu, themeClick, theme, onClose }) {
   const [showBoard, setShowBoard] = useState(false);
 
   const newBoardClick = () => {
     setShowBoard(!showBoard);
   };
-const handleClose=()=>{
-  setShowBoard(false)
-}
-
+  const handleClose = () => {
+    setShowBoard(false);
+  };
 
   return (
     <>
@@ -22,7 +21,9 @@ const handleClose=()=>{
            ${visibilityMenu ? "block" : "hidden"}`}
       >
         <div className="w-72">
-          <h5 className="text-xl text-mediumGrey mt-8 ml-6">ALL BOARDS ( 3 ) </h5>
+          <h5 className="text-xl text-mediumGrey mt-8 ml-6">
+            ALL BOARDS ( 3 ){" "}
+          </h5>
           <div className="">
             <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-3 p-3">
               <div className="flex items-center justify-center hover:brightness-0 hover:invert">
@@ -49,6 +50,20 @@ const handleClose=()=>{
                 </span>
                 <span className="text-lg font-bold text-mediumGrey">
                   Marketing Plan
+                </span>
+              </span>
+            </div>
+            <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3">
+              <span className="flex items-center justify-center hover:brightness-0 hover:invert">
+                <span className="ml-3 pr-4">
+                  <img
+                    src="..\src\assets\icon-board.svg"
+                    alt=""
+                    className="w-5"
+                  />
+                </span>
+                <span className="text-lg font-bold text-mediumGrey">
+                  Roadmap
                 </span>
               </span>
             </div>
