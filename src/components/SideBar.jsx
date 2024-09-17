@@ -1,11 +1,27 @@
 import "../App.css";
 import { CreateNewBoard } from "./CreateNewBoard";
 import { ThemeIcon } from "./ThemeIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function SideBar({ visibilityMenu, themeClick, theme, onClose }) {
+export function SideBar({ visibilityMenu, themeClick, theme }) {
+
+  const [boards, setBoards] = useState([]);
+  useEffect(() => {
+    try{
+    fetch("http://localhost:8000/boards")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBoards(data);
+      })
+    }catch(error){
+console.error(error)
+    }
+  }, []);
+  
+
   const [showBoard, setShowBoard] = useState(false);
-
   const newBoardClick = () => {
     setShowBoard(!showBoard);
   };
@@ -25,62 +41,25 @@ export function SideBar({ visibilityMenu, themeClick, theme, onClose }) {
             ALL BOARDS ( 3 ){" "}
           </h5>
           <div className="">
-            <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-3 p-3">
-              <div className="flex items-center justify-center hover:brightness-0 hover:invert">
-                <span className="ml-3 pr-4 ">
-                  <img
-                    src="..\src\assets\icon-board.svg"
-                    alt="icon-board"
-                    className="w-5 "
-                  />
-                </span>
-                <span className="text-lg font-bold text-mediumGrey hover:brightness-0 hover:invert">
-                  Platform Launch
+            {boards.map((board) => (
+              <div
+                className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3"
+                key={board.id}
+              >
+                <span className="flex items-center justify-center hover:brightness-0 hover:invert">
+                  <span className="ml-3 pr-4">
+                    <img
+                      src="..\src\assets\icon-board.svg"
+                      alt=""
+                      className="w-5"
+                    />
+                  </span>
+                  <span className="text-lg font-bold text-mediumGrey">
+                    {board.name}
+                  </span>
                 </span>
               </div>
-            </div>
-            <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3">
-              <span className="flex items-center justify-center hover:brightness-0 hover:invert">
-                <span className="ml-3 pr-4">
-                  <img
-                    src="..\src\assets\icon-board.svg"
-                    alt=""
-                    className="w-5"
-                  />
-                </span>
-                <span className="text-lg font-bold text-mediumGrey">
-                  Marketing Plan
-                </span>
-              </span>
-            </div>
-            <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3">
-              <span className="flex items-center justify-center hover:brightness-0 hover:invert">
-                <span className="ml-3 pr-4">
-                  <img
-                    src="..\src\assets\icon-board.svg"
-                    alt=""
-                    className="w-5"
-                  />
-                </span>
-                <span className="text-lg font-bold text-mediumGrey">
-                  Roadmap
-                </span>
-              </span>
-            </div>
-            <div className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3">
-              <span className="flex items-center justify-center hover:brightness-0 hover:invert">
-                <span className="ml-3 pr-4">
-                  <img
-                    src="..\src\assets\icon-board.svg"
-                    alt=""
-                    className="w-5"
-                  />
-                </span>
-                <span className="text-lg font-bold text-mediumGrey">
-                  Roadmap
-                </span>
-              </span>
-            </div>
+            ))}
           </div>
           <div className=" flex mt-2 p-3 items-center ">
             <span className="ml-3 pr-4">

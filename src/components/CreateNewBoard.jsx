@@ -17,27 +17,33 @@ export function CreateNewBoard({ onClose }) {
   }, [onClose]);
 
 
-  const [boardname,setBardName]=useState("")
+  const [boardname,setBordName]=useState("")
+  const [boardColumns,setBoardColumns]=useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const createNewBoardForm={boardname,boardColumns}
+    console.log(createNewBoardForm)
   };
+
+
 
   const [columns, setColumns] = useState([]);
 
   const addColumn = () => {
     const newCol = {
-      id: uuidv4(),
+      id:uuidv4(),
       element: (
         <div className="flex w-full rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-100 sm:max-w-md mb-2">
           <input
             type="text"
-            name="columns"
-            id="columns"
             autoComplete="columns"
             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
-            placeholder=""
+            placeholder={boardColumns}
+            
+            onChange={(events)=>{setBoardColumns(events.target.value)}}
           />
+           
         </div>
       ),
     };
@@ -74,13 +80,13 @@ export function CreateNewBoard({ onClose }) {
                       type="text"
                       name="name"
                       id="name"
-                      value={boardname}
-                      onChange={(e)=>{setBardName(e.target.value)}}
                       autoComplete="name"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder="e.g Web Design"
+                      placeholder=""
+                      value={boardname}
+                      onChange={(e)=>{setBordName(e.target.value)}}
                     />
-                    <p>{name}</p>
+           
                   </div>
                 </div>
               </div>
@@ -126,6 +132,8 @@ export function CreateNewBoard({ onClose }) {
           >
             Create New Board
           </button>
+
+       
         </div>
       </form>
     </>
