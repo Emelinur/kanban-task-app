@@ -16,34 +16,32 @@ export function CreateNewBoard({ onClose }) {
     };
   }, [onClose]);
 
-
-  const [boardname,setBordName]=useState("")
-  const [boardColumns,setBoardColumns]=useState("")
+  const [boardname, setBordName] = useState("");
+  const [boardColumns, setBoardColumns] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const createNewBoardForm={boardname,boardColumns}
-    console.log(createNewBoardForm)
+    const createNewBoardForm = { boardname, boardColumns };
+    console.log(createNewBoardForm);
   };
-
-
 
   const [columns, setColumns] = useState([]);
 
   const addColumn = () => {
     const newCol = {
-      id:uuidv4(),
+      id: uuidv4(),
       element: (
         <div className="flex w-full rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-100 sm:max-w-md mb-2">
           <input
             type="text"
-            autoComplete="columns"
+
             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
-            placeholder={boardColumns}
-            
-            onChange={(events)=>{setBoardColumns(events.target.value)}}
-          />
+            id={boardColumns}
+            onChange={(e) => {
+              setBoardColumns(e.target.id);
+            }}
            
+          />
         </div>
       ),
     };
@@ -78,15 +76,12 @@ export function CreateNewBoard({ onClose }) {
                   <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                     <input
                       type="text"
-                      name="name"
-                      id="name"
-                      autoComplete="name"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder=""
                       value={boardname}
-                      onChange={(e)=>{setBordName(e.target.value)}}
+                      onChange={(e) => {
+                        setBordName(e.target.value);
+                      }}
                     />
-           
                   </div>
                 </div>
               </div>
@@ -100,9 +95,13 @@ export function CreateNewBoard({ onClose }) {
                   Board Columns
                 </label>
               </div>
+              
               {columns.map((item, index) => (
                 <div className="mt-2 flex" key={item.id}>
-                  {item.element}
+                
+                {item.element}
+
+
                   <button
                     type="button"
                     className="m-2 ml-3 pr-4"
@@ -132,8 +131,6 @@ export function CreateNewBoard({ onClose }) {
           >
             Create New Board
           </button>
-
-       
         </div>
       </form>
     </>
