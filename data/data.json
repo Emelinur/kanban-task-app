@@ -281,7 +281,8 @@
             }
           ]
         }
-      ]
+      ],
+      "id": "1682"
     },
     {
       "name": "Marketing Plan",
@@ -372,7 +373,8 @@
           "name": "Done",
           "tasks": []
         }
-      ]
+      ],
+      "id": "929f"
     },
     {
       "name": "Roadmap",
@@ -425,6 +427,16 @@
           "tasks": []
         }
       ]
+    },
+    {
+      "id": "dbaa",
+      "name": "YAZILIM",
+      "columns": [
+        "TODO",
+        "DO",
+        "DONE"
+      ]
     }
+  
   ]
 }

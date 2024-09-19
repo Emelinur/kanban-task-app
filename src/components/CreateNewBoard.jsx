@@ -16,39 +16,57 @@ export function CreateNewBoard({ onClose }) {
     };
   }, [onClose]);
 
-  const [boardname, setBordName] = useState("");
-  const [boardColumns, setBoardColumns] = useState(null);
+  const [name, setName] = useState("");
+  const [columns,setColumns ] = useState([]); 
+  const [ispending,setIsPending]=useState(false)
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const createNewBoardForm = { boardname, boardColumns };
-    console.log(createNewBoardForm);
+    const Board = { name,columns  };
+
+
+    
+
+setIsPending(true)
+
+fetch("http://localhost:8000/boards",{
+  method:"POST",
+  headers:{"Content-Type":"application/JSON"},
+  body:JSON.stringify(Board)
+
+}).then(()=>{
+
+  console.log("new add board")
+  setIsPending(false)
+})
+
+
+
+
+    console.log(Board); 
   };
 
-  const [columns, setColumns] = useState([]);
+  const [boardColumns, setBoardColumns] = useState([]);
 
   const addColumn = () => {
     const newCol = {
       id: uuidv4(),
-      element: (
-        <div className="flex w-full rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-100 sm:max-w-md mb-2">
-          <input
-            type="text"
-
-            className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
-            id={boardColumns}
-            onChange={(e) => {
-              setBoardColumns(e.target.id);
-            }}
-           
-          />
-        </div>
-      ),
+      value: "", 
     };
-    setColumns((prev) => [...prev, newCol]);
+     setBoardColumns((prev) => [...prev, newCol]);
+     setColumns((prev) => [...prev, ""]);
+  };
+
+  const handleInputChange = (index, event) => {
+    const newColumns = [...columns];
+    newColumns[index] = event.target.value;
+    setColumns(newColumns);
   };
 
   const removeColumn = (index) => {
+    setBoardColumns((prev) => prev.filter((_, i) => i !== index));
     setColumns((prev) => prev.filter((_, i) => i !== index));
   };
 
@@ -77,9 +95,9 @@ export function CreateNewBoard({ onClose }) {
                     <input
                       type="text"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      value={boardname}
+                      value={name}
                       onChange={(e) => {
-                        setBordName(e.target.value);
+                        setName(e.target.value);
                       }}
                     />
                   </div>
@@ -95,13 +113,17 @@ export function CreateNewBoard({ onClose }) {
                   Board Columns
                 </label>
               </div>
-              
-              {columns.map((item, index) => (
+
+              {boardColumns.map((item, index) => (
                 <div className="mt-2 flex" key={item.id}>
-                
-                {item.element}
-
-
+                  <div className="flex w-full rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-100 sm:max-w-md mb-2">
+                    <input
+                      type="text"
+                      className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
+                      value={columns[index]}
+                      onChange={(e) => handleInputChange(index, e)}
+                    />
+                  </div>
                   <button
                     type="button"
                     className="m-2 ml-3 pr-4"
@@ -124,13 +146,24 @@ export function CreateNewBoard({ onClose }) {
               </button>
             </div>
           </div>
-          <button
+          {!ispending&&<button
             type="submit"
             value="Create New Board"
             className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
           >
             Create New Board
           </button>
+          }
+           {ispending&&<button
+           disabled
+            type="submit"
+            value="Create New Board"
+            className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
+          >
+            Adding Board...
+          </button>
+          }
+          
         </div>
       </form>
     </>
