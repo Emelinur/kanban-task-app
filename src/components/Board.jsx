@@ -1,4 +1,23 @@
+import { useEffect, useState } from "react";
+
 export function Board() {
+  const [status, setStatus] = useState([]);
+
+  useEffect(() => {
+    try {
+      fetch("http://localhost:8000/boards")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data)
+          setStatus(data);
+        });
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
   return (
     <>
       <div className="w-6/12 flex flex-row justify-between items-start  ">
