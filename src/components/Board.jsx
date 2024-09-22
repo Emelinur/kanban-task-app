@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function Board() {
-  const [status, setStatus] = useState([]);
+  const [boardCol, setboardCol] = useState([]);
 
   useEffect(() => {
     try {
@@ -10,8 +10,8 @@ export function Board() {
           return res.json();
         })
         .then((data) => {
-          console.log(data)
-          setStatus(data);
+          console.log(data);
+          setboardCol(data);
         });
     } catch (err) {
       console.error(err);
@@ -22,65 +22,103 @@ export function Board() {
     <>
       <div className="w-6/12 flex flex-row justify-between items-start  ">
         <div className="flex flex-row h-full m-2w-screen">
-          <div className=" flex flex-col items-start m-1 ml-2">
-            <div className="flex justify-start items-center mb-4">
-              <img
-                src="src\assets\OvalTodo.svg"
-                alt="OvalTodo"
-                className="w-4 mr-2"
-              />
-              <p className=" text-lg text-mediumGrey">TODO (4)</p>
-            </div>
+          {boardCol &&
+            boardCol.map((boards) =>
+              boards.columns.map((column, columnIndex) => {
+                if (column.name === "Todo") {
+                  return (
+                    <div
+                      key={columnIndex}
+                      className=" flex flex-col items-start m-1 ml-2"
+                    >
+                      <div className="flex justify-start items-center mb-4">
+                        <img
+                          src="src\assets\OvalTodo.svg"
+                          alt="OvalTodo"
+                          className="w-4 mr-2"
+                        />
+                        <p className=" text-lg text-mediumGrey">{column.name}</p>
+                      </div>
+                      {column.tasks.map((task,taskIndex)=>(
+                      <div key={taskIndex} className="flex flex-col bg-white p-4 w-80 dark:bg-darkGrey">
+                        <div className="h-20 ">
+                          <p className="font-bold dark:text-white">
+                            {task.title}
+                          </p>
+                          <span className="text-mediumGrey ">
+                            0 of 6 substasks
+                          </span>
+                        </div>
+                      </div>
+                      ))}
+                    </div>
+                  );
+                }
 
-            <div className="flex flex-col bg-white p-4 w-80 dark:bg-darkGrey">
-              <div className="h-20 ">
-                <p className="font-bold dark:text-white">
-                  Build UI for onboarding flow
-                </p>
-                <span className="text-mediumGrey ">0 of 6 substasks</span>
-              </div>
-            </div>
-          </div>
+                if (column.name === "Doing") {
+                  return (
+                    <div
+                      key={columnIndex}
+                      className=" flex flex-col items-start m-1 ml-2"
+                    >
+                      <div className="flex justify-start items-center mb-4">
+                        <img
+                          src="src\assets\OvalDoing.svg"
+                          alt="OvalDoing"
+                          className="w-4 mr-2"
+                        />
+                        <p className=" text-lg text-mediumGrey">
+                          {column.name}
+                        </p>
+                      </div>
+                      {column.tasks.map((task,taskIndex)=>(
+                      <div key={taskIndex} className="flex flex-col bg-white dark:bg-darkGrey p-4 w-80">
+                        <div className="h-20 ">
+                          <p className="font-bold dark:text-white">
+                          {task.title}d
+                          </p>
+                          <span className="text-mediumGrey">
+                            1 of 3 substasks
+                          </span>
+                        </div>
+                      </div>
+                      ))}
+                    </div>
+                  );
+                }
 
-          <div className=" flex flex-col items-start m-1 ml-2">
-            <div className="flex justify-start items-center mb-4">
-              <img
-                src="src\assets\OvalDoing.svg"
-                alt="OvalDoing"
-                className="w-4 mr-2"
-              />
-              <p className=" text-lg text-mediumGrey">DOING (6)</p>
-            </div>
+                if (column.name == "Done") {
+                  return (
+                    <div
+                      key={columnIndex}
+                      className=" flex flex-col items-start m-1 ml-2"
+                    >
+                      <div className="flex justify-start items-center mb-4">
+                        <img
+                          src="src\assets\OvalDone.svg"
+                          alt="OvalDone"
+                          className="w-4 mr-2"
+                        />
+                        <p className="text-lg text-mediumGrey">{column.name}</p>
+                      </div>
+                      {column.tasks.map((task,taskIndex)=>(
+                      <div key={taskIndex} className="flex flex-col bg-white dark:bg-darkGrey p-4 w-80">
+                        <div className="h-20 ">
+                          <p className="font-bold dark:text-white">
+                          {task.title}
+                          </p>
+                          <span className="text-mediumGrey">
+                            1 of 1 substasks
+                          </span>
+                        </div>
+                      </div>
+                      ))}
+                    </div>
+                  );
+                }
+              })
+            )}
 
-            <div className="flex flex-col bg-white dark:bg-darkGrey p-4 w-80">
-              <div className="h-20 ">
-                <p className="font-bold dark:text-white">
-                  Design settings and search pages
-                </p>
-                <span className="text-mediumGrey">1 of 3 substasks</span>
-              </div>
-            </div>
-          </div>
-
-          <div className=" flex flex-col items-start m-1 ml-2">
-            <div className="flex justify-start items-center mb-4">
-              <img
-                src="src\assets\OvalDone.svg"
-                alt="OvalDone"
-                className="w-4 mr-2"
-              />
-              <p className="text-lg text-mediumGrey">DONE (7)</p>
-            </div>
-
-            <div className="flex flex-col bg-white dark:bg-darkGrey p-4 w-80">
-              <div className="h-20 ">
-                <p className="font-bold dark:text-white">
-                  Conduct 5 wireframe tests
-                </p>
-                <span className="text-mediumGrey">1 of 1 substasks</span>
-              </div>
-            </div>
-          </div>
           <div className="flex justify-center items-center w-80  bg-linear dark:bg-darkGrey mt-12 ml-2">
             <button className="flex justify-center items-center text-mediumGrey text-2xl font-bold">
               + New Column
