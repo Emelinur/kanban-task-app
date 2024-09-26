@@ -17,35 +17,25 @@ export function CreateNewBoard({ onClose }) {
   }, [onClose]);
 
   const [name, setName] = useState("");
-  const [columns,setColumns ] = useState([]); 
-  const [ispending,setIsPending]=useState(false)
-
-  
+  const [columns, setColumns] = useState([]);
+  const [ispending, setIsPending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const Board = { name,columns  };
+    const Board = { name, columns };
 
+    setIsPending(true);
 
-    
+    fetch("http://localhost:8000/boards", {
+      method: "POST",
+      headers: { "Content-Type": "application/JSON" },
+      body: JSON.stringify(Board),
+    }).then(() => {
+      console.log("new add board");
+      setIsPending(false);
+    });
 
-setIsPending(true)
-
-fetch("http://localhost:8000/boards",{
-  method:"POST",
-  headers:{"Content-Type":"application/JSON"},
-  body:JSON.stringify(Board)
-
-}).then(()=>{
-
-  console.log("new add board")
-  setIsPending(false)
-})
-
-
-
-
-    console.log(Board); 
+    console.log(Board);
   };
 
   const [boardColumns, setBoardColumns] = useState([]);
@@ -53,10 +43,10 @@ fetch("http://localhost:8000/boards",{
   const addColumn = () => {
     const newCol = {
       id: uuidv4(),
-      value: "", 
+      value: "",
     };
-     setBoardColumns((prev) => [...prev, newCol]);
-     setColumns((prev) => [...prev, ""]);
+    setBoardColumns((prev) => [...prev, newCol]);
+    setColumns((prev) => [...prev, ""]);
   };
 
   const handleInputChange = (index, event) => {
@@ -146,24 +136,25 @@ fetch("http://localhost:8000/boards",{
               </button>
             </div>
           </div>
-          {!ispending&&<button
-            type="submit"
-            value="Create New Board"
-            className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
-          >
-            Create New Board
-          </button>
-          }
-           {ispending&&<button
-           disabled
-            type="submit"
-            value="Create New Board"
-            className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
-          >
-            Adding Board...
-          </button>
-          }
-          
+          {!ispending && (
+            <button
+              type="submit"
+              value="Create New Board"
+              className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
+            >
+              Create New Board
+            </button>
+          )}
+          {ispending && (
+            <button
+              disabled
+              type="submit"
+              value="Create New Board"
+              className="w-full rounded-full bg-mainPurple px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainPurpleHover"
+            >
+              Adding Board...
+            </button>
+          )}
         </div>
       </form>
     </>
