@@ -4,7 +4,7 @@ import { CreateNewBoard } from "./CreateNewBoard";
 import { ThemeIcon } from "./ThemeIcon";
 import { useEffect, useState } from "react";
 
-export function SideBar({ visibilityMenu, themeClick, theme, }) {
+export function SideBar({ visibilityMenu, themeClick, theme,handleBoardShow }) {
 
   const [boards, setBoards] = useState([]);
   useEffect(() => {
@@ -30,17 +30,21 @@ console.error(error)
     setShowBoard(false);
   };
 
-  const [selectedBoard, setSelectedBoard] = useState(null);
+  const [selectedBoard, setSelectedBoard] = useState([]);
+
+const [boardStartShow,setBoardStartShow]=useState(true)
+
 
 const handleBoardClick = (boardName)=>{
   setSelectedBoard(boardName)
-  console.log(setSelectedBoard(boardName))
+  setBoardStartShow(!boardStartShow)
 }
 
  
 
   return (
     <>
+    
       <nav
         className={`w-80 bg-white flex flex-col justify-between border-r-2 border-border
           dark:bg-darkGrey dark:border-r-linesDark 
@@ -55,7 +59,7 @@ const handleBoardClick = (boardName)=>{
               <div
                 className="hover:bg-mainPurple  hover:border-r-2 rounded-r-full border-r-mainPurple flex mt-2 p-3"
                 key={board.id}
-                onClick={() => handleBoardClick(board.name)}
+                onClick={() => handleBoardClick(board.name)} handleBoardShow={handleBoardShow}
               >
                 <span className="flex items-center justify-center hover:brightness-0 hover:invert">
                   <span className="ml-3 pr-4">
@@ -65,7 +69,7 @@ const handleBoardClick = (boardName)=>{
                       className="w-5"
                     />
                   </span>
-                  <button className="text-lg font-bold text-mediumGrey" onClick={handleBoardNameClick}>
+                  <button className="text-lg font-bold text-mediumGrey" onClick={handleBoardClick}>
                     {board.name} 
                   </button> 
                 </span>
@@ -87,6 +91,7 @@ const handleBoardClick = (boardName)=>{
         <ThemeIcon themeClick={themeClick} theme={theme} />
       </nav>
 
+
       {showBoard && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 drop-shadow-sm ">
           <CreateNewBoard onClose={handleClose} />
@@ -94,6 +99,15 @@ const handleBoardClick = (boardName)=>{
       )}
           {/* Board bileşenini render ederek seçilen tahtayı prop olarak iletin */}
           {selectedBoard && <Board boardName={selectedBoard} />}
+              
+      {boardStartShow && ( <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">
+        <p className="text-mediumGrey mb-4">
+          This board is empty. Create a new column to get started.
+        </p>
+        <button className="bg-mainPurple rounded-full p-4 text-white">
+          + Add New Column
+        </button>
+      </div>)}
     </>
   );
 }

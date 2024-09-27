@@ -1,12 +1,11 @@
 import "./App.css";
-import { Board } from "./components/Board";
 import { NavBar } from "./components/NavBar";
 import { SideBar } from "./components/SideBar";
 
 import { SideBarFooter } from "./components/SideBarFooter";
 import { useState } from "react";
 
-export default function App() {
+export default function App({ handleBoardShow }) {
   const [visibilityMenu, setvisibilityMenu] = useState(true);
   const VisibilityBoard = () => {
     setvisibilityMenu(!visibilityMenu);
@@ -34,16 +33,8 @@ export default function App() {
             visibilityMenu={visibilityMenu}
             themeClick={themeClick}
             theme={theme}
+            handleBoardShow={handleBoardShow}
           />
-          <Board />
-          {/* <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">
-            <p className="text-mediumGrey mb-4">
-              This board is empty. Create a new column to get started.
-            </p>
-            <button className="bg-mainPurple rounded-full p-4 text-white">
-              + Add New Column
-            </button>
-          </div> */}
         </div>
 
         <div>
