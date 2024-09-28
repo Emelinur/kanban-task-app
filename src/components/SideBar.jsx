@@ -1,5 +1,6 @@
 import "../App.css";
 import { Board } from "./Board";
+import { BoardStart } from "./BoardStart";
 import { CreateNewBoard } from "./CreateNewBoard";
 import { ThemeIcon } from "./ThemeIcon";
 import { useEffect, useState } from "react";
@@ -40,11 +41,12 @@ const handleBoardClick = (boardName)=>{
   setBoardStartShow(!boardStartShow)
 }
 
+
  
 
   return (
     <>
-    
+       
       <nav
         className={`w-80 bg-white flex flex-col justify-between border-r-2 border-border
           dark:bg-darkGrey dark:border-r-linesDark 
@@ -97,17 +99,14 @@ const handleBoardClick = (boardName)=>{
           <CreateNewBoard onClose={handleClose} />
         </div>
       )}
-          {/* Board bileşenini render ederek seçilen tahtayı prop olarak iletin */}
-          {selectedBoard && <Board boardName={selectedBoard} />}
-              
-      {boardStartShow && ( <div className="max-sm:w-auto max-sm:h-auto flex flex-col justify-center items-center flex-grow">
-        <p className="text-mediumGrey mb-4">
-          This board is empty. Create a new column to get started.
-        </p>
-        <button className="bg-mainPurple rounded-full p-4 text-white">
-          + Add New Column
-        </button>
-      </div>)}
+      
+
+      {/* Board bileşenini render ederek seçilen tahtayı prop olarak iletin */}
+      {selectedBoard && <Board boardName={selectedBoard}  />}
+
+      {boardStartShow && <BoardStart/>}
+       
+   
     </>
   );
 }

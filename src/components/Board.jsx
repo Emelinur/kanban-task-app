@@ -19,6 +19,7 @@ export function Board({ boardName }) {
   }, [boardName]); // boardName değiştiğinde veriyi yeniden getir
 
   return (
+    
     <div className="w-6/12 flex flex-row justify-between items-start">
       <div className="flex flex-row h-full m-2 w-screen">
         {boardCol.map((board) =>
