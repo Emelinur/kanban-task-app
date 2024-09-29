@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export function CreateNewBoard({ onClose }) {
+export function CreateNewBoard({ onClose,onBoardAdded }) {
   const formRef = useRef(null);
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
@@ -15,6 +14,7 @@ export function CreateNewBoard({ onClose }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+
 
   const [name, setName] = useState("");
   const [columns, setColumns] = useState([]);
@@ -30,9 +30,11 @@ export function CreateNewBoard({ onClose }) {
       method: "POST",
       headers: { "Content-Type": "application/JSON" },
       body: JSON.stringify(Board),
-    }).then(() => {
+    }).then((res) => res.json())
+    .then((data) => {
       console.log("new add board");
       setIsPending(false);
+      onBoardAdded(data); 
     });
 
     console.log(Board);
@@ -43,15 +45,21 @@ export function CreateNewBoard({ onClose }) {
   const addColumn = () => {
     const newCol = {
       id: uuidv4(),
-      value: "",
+      name:"",
+      task:[],
+      title:"",
+      description:"",
+      status:"",
+      subtasks:[]
     };
     setBoardColumns((prev) => [...prev, newCol]);
-    setColumns((prev) => [...prev, ""]);
+    setColumns((prev) => [...prev, { name: "",tasks: [],title:"",description:"", status:name,subtasks:[] }])
   };
 
   const handleInputChange = (index, event) => {
     const newColumns = [...columns];
-    newColumns[index] = event.target.value;
+    newColumns[index].name = event.target.value;
+    newColumns[index].status = event.target.value; 
     setColumns(newColumns);
   };
 
@@ -110,8 +118,8 @@ export function CreateNewBoard({ onClose }) {
                     <input
                       type="text"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-black focus:ring-0 sm:text-sm sm:leading-6 dark:text-white"
-                      value={columns[index]}
-                      onChange={(e) => handleInputChange(index, e)}
+                      value={columns[index]?.name|| ""}
+                      onChange={(e) => handleInputChange(index,e)}
                     />
                   </div>
                   <button

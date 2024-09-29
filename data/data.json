@@ -281,8 +281,7 @@
             }
           ]
         }
-      ],
-      "id": "1682"
+      ]
     },
     {
       "name": "Marketing Plan",
@@ -380,7 +379,7 @@
       "name": "Roadmap",
       "columns": [
         {
-          "name": "Now",
+          "name": "Todo",
           "tasks": [
             {
               "title": "Launch version one",
@@ -419,53 +418,44 @@
           ]
         },
         {
-          "name": "Next",
+          "name": "Done",
           "tasks": []
         },
         {
-          "name": "Later",
+          "name": "Doing",
           "tasks": []
         }
-      ],
-      "id": "7fca"
-    },
-    {
-      "id": "dbaa",
-      "name": "YAZILIM",
-      "columns": [
-        "TODO",
-        "DO",
-        "DONE"
       ]
     },
     {
-      "id": "44b5",
-      "name": "React",
+      "id": "7726",
+      "name": "okul",
       "columns": [
-        "Todo",
-        "Do",
-        "Done"
-      ]
-    },
-    {
-      "id": "95b2",
-      "name": "sadas",
-      "columns": [
-        "sada",
-        "sds",
-        "sdsd"
-      ]
-    },
-    {
-      "id": "855f",
-      "name": "sadas",
-      "columns": [
-        "sada",
-        "sds",
-        "sdsd"
+        {
+          "name": "Todo",
+          "tasks": [],
+          "title": "",
+          "description": "",
+          "status": "Todo",
+          "subtasks": []
+        },
+        {
+          "name": "Doing",
+          "tasks": [],
+          "title": "",
+          "description": "",
+          "status": "Doing",
+          "subtasks": []
+        },
+        {
+          "name": "Done",
+          "tasks": [],
+          "title": "",
+          "description": "",
+          "status": "Done",
+          "subtasks": []
+        }
       ]
     }
-      
   ]
-
 }
