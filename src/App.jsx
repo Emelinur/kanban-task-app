@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export default function App({ handleBoardShow }) {
   const [visibilityMenu, setvisibilityMenu] = useState(true);
+  const [selectedBoardName, setSelectedBoardName] = useState(""); 
   const VisibilityBoard = () => {
     setvisibilityMenu(!visibilityMenu);
   };
@@ -26,14 +27,16 @@ export default function App({ handleBoardShow }) {
   return (
     <>
       <div className="flex flex-col  h-screen ">
-        <NavBar theme={theme} />
+        <NavBar theme={theme} selectedBoardName={selectedBoardName}/>
 
         <div className="flex flex-row h-screen">
           <SideBar
             visibilityMenu={visibilityMenu}
             themeClick={themeClick}
             theme={theme}
+            setSelectedBoardName={setSelectedBoardName}
             handleBoardShow={handleBoardShow}
+           
           />
         </div>
 
@@ -41,6 +44,7 @@ export default function App({ handleBoardShow }) {
           <SideBarFooter
             VisibilityBoard={VisibilityBoard}
             visibilityMenu={visibilityMenu}
+            
           />
         </div>
       </div>

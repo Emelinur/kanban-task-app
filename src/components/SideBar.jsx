@@ -2,11 +2,12 @@ import "../App.css";
 import { Board } from "./Board";
 import { BoardStart } from "./BoardStart";
 import { CreateNewBoard } from "./CreateNewBoard";
+import { NavBar } from "./NavBar";
 import { ThemeIcon } from "./ThemeIcon";
 import { useEffect, useState } from "react";
 
 
-export function SideBar({ visibilityMenu, themeClick, theme }) {
+export function SideBar({ visibilityMenu, themeClick, theme,setSelectedBoardName }) {
   const [boards, setBoards] = useState([]);
 
   // Fetching boards data
@@ -26,10 +27,9 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
   const [selectedBoard, setSelectedBoard] = useState(null); 
   const [boardStartShow, setBoardStartShow] = useState(true);
 
-  // Yeni board eklendiğinde tetiklenen fonksiyon
   const handleBoardAdded = (newBoard) => {
-    setBoards((prevBoards) => [...prevBoards, newBoard]);  // Boards listesine yeni board'u ekle
-    setShowBoard(false);  // Modalı kapat
+    setBoards((prevBoards) => [...prevBoards, newBoard]);
+    setShowBoard(false);
   };
 
   const newBoardClick = () => {
@@ -42,6 +42,7 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
 
   const handleBoardClick = (boardName) => {
     setSelectedBoard(boardName);
+    setSelectedBoardName(boardName);
     setBoardStartShow(false);
   };
 
@@ -74,8 +75,11 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
                   <button
                     className="text-lg font-bold text-mediumGrey"
                     onClick={() => handleBoardClick(board.name)}
+                    
                   >
-                    {board.name}
+                 {board.name}
+                
+
                   </button>
                 </span>
               </div>
@@ -103,10 +107,15 @@ export function SideBar({ visibilityMenu, themeClick, theme }) {
       )}
 
       {selectedBoard ? (
-        <Board boardName={selectedBoard} />
+        
+        <Board boardName={selectedBoard}/>
+        
       ) : (
         boardStartShow && <BoardStart />
+        
       )}
+    
+      
     </>
   );
 }

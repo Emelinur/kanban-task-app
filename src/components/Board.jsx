@@ -16,7 +16,7 @@ export function Board({ boardName }) {
     } catch (err) {
       console.error(err);
     }
-  }, [boardName]); // boardName değiştiğinde veriyi yeniden getir
+  }, [boardName]);
 
   return (
     

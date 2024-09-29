@@ -1,4 +1,8 @@
-export function NavBar({ theme }) {
+import { useEffect } from "react";
+
+export function NavBar({ theme,selectedBoardName  }) {
+
+
   return (
     <>
       <header className="flex w-full bg-white dark:bg-darkGrey">
@@ -10,8 +14,9 @@ export function NavBar({ theme }) {
           )}
         </div>
         <div className="flex flex-grow items-center justify-between dark:bg-darkGrey ">
-          <h1 className="text-xl font-bold text-darkGrey p-2 m-3 dark:text-white">
-            Platform Launch
+          <h1 className="text-xl font-bold text-darkGrey p-2 m-3 dark:text-white"  
+          >
+   {selectedBoardName }
           </h1>
           <div className="flex items-center mr-2">
             <button className="max-sm:p-2 max-sm:w-max max-sm:text-sm  bg-mainPurpleHover rounded-full p-3  text-white hover:bg-mainPurple">
