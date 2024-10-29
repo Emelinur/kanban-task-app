@@ -35,14 +35,14 @@ export function Board({ boardName }) {
           <p className="text-lg text-mediumGrey">{column.name}</p>
         </div>
         {column.tasks && Array.isArray(column.tasks) && column.tasks.map((task, taskIndex) => (
-          <div key={taskIndex} className="flex flex-col bg-white p-4 w-80 dark:bg-darkGrey">
+          <button key={taskIndex} className="flex flex-col bg-white p-4 w-80 m-2 dark:bg-darkGrey">
             <div className="h-20">
               <p className="font-bold dark:text-white">{task.title || 'Yeni Görev'}</p>
               <span className="text-mediumGrey">
                 {task.subtasks?.length || 0} of {task.subtasks?.length || 0} alt görev
               </span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     ))
@@ -50,7 +50,7 @@ export function Board({ boardName }) {
     <div>No columns found.</div> // Hata mesajı
   )
 )}
-        <div className="flex justify-center items-center w-80 bg-linear dark:bg-darkGrey mt-12 ml-2">
+        <div className="flex justify-center items-center w-80  bg-linear dark:bg-darkGrey mt-12 ml-2">
           <button className="flex justify-center items-center text-mediumGrey text-2xl font-bold">
             + Yeni Sütun
           </button>
