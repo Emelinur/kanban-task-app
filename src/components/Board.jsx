@@ -35,7 +35,8 @@ export function Board({ boardName }) {
           <p className="text-lg text-mediumGrey">{column.name}</p>
         </div>
         {column.tasks && Array.isArray(column.tasks) && column.tasks.map((task, taskIndex) => (
-          <button key={taskIndex} className="flex flex-col bg-white p-4 w-80 m-2 dark:bg-darkGrey">
+          <button key={taskIndex} className="flex flex-col bg-white p-4 w-80 m-2
+           dark:bg-darkGrey">
             <div className="h-20">
               <p className="font-bold dark:text-white">{task.title || 'Yeni Görev'}</p>
               <span className="text-mediumGrey">

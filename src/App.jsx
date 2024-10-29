@@ -36,7 +36,6 @@ export default function App({ handleBoardShow }) {
             theme={theme}
             setSelectedBoardName={setSelectedBoardName}
             handleBoardShow={handleBoardShow}
-           
           />
         </div>
 

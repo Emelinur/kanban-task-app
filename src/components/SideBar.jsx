@@ -78,8 +78,6 @@ export function SideBar({ visibilityMenu, themeClick, theme,setSelectedBoardName
                     
                   >
                  {board.name}
-                
-
                   </button>
                 </span>
               </div>
