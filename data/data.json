@@ -281,7 +281,8 @@
             }
           ]
         }
-      ]
+      ],
+      "id": "d8b6"
     },
     {
       "name": "Marketing Plan",
@@ -424,36 +425,6 @@
         {
           "name": "Doing",
           "tasks": []
-        }
-      ]
-    },
-    {
-      "id": "7726",
-      "name": "okul",
-      "columns": [
-        {
-          "name": "Todo",
-          "tasks": [],
-          "title": "",
-          "description": "",
-          "status": "Todo",
-          "subtasks": []
-        },
-        {
-          "name": "Doing",
-          "tasks": [],
-          "title": "",
-          "description": "",
-          "status": "Doing",
-          "subtasks": []
-        },
-        {
-          "name": "Done",
-          "tasks": [],
-          "title": "",
-          "description": "",
-          "status": "Done",
-          "subtasks": []
         }
       ]
     }
